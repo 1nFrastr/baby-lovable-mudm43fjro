@@ -1,0 +1,3 @@
+deps	Add or remove npm packages with pnpm in the sandbox. Use when the user needs a new dependency or after editing package.json.
+preview	Preview readiness and Next.js dev logs. Use when checkPreview fails, HTTP is 500, or you need compile/runtime error text.
+workspace-unix	Inspect the Next.js workspace with ls, find, and ripgrep. Use when listing files, searching filenames or file contents, or composing unix pipelines.
