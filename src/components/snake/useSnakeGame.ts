@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { sfx } from "./sfx";
 
 export type Point = { x: number; y: number };
 export type Status = "idle" | "running" | "over";
@@ -41,12 +42,15 @@ export function useSnakeGame() {
     if (stored) setHighScore(Number(stored));
   }, []);
 
+  const wrap = useCallback((v: number) => (v + SIZE) % SIZE, []);
+
   const turn = useCallback((name: keyof typeof DIRS) => {
     const d = DIRS[name];
     const cur = dirRef.current;
     // prevent reversing into yourself
     if (d.x + cur.x === 0 && d.y + cur.y === 0) return;
     nextDirRef.current = d;
+    sfx.turn();
   }, []);
 
   const start = useCallback(() => {
@@ -61,6 +65,7 @@ export function useSnakeGame() {
     dirRef.current = DIRS.right;
     nextDirRef.current = DIRS.right;
     setStatus("running");
+    sfx.start();
   }, []);
 
   useEffect(() => {
@@ -70,16 +75,15 @@ export function useSnakeGame() {
       setSnake((prev) => {
         const head = prev[0];
         const next: Point = {
-          x: head.x + dirRef.current.x,
-          y: head.y + dirRef.current.y,
+          x: wrap(head.x + dirRef.current.x),
+          y: wrap(head.y + dirRef.current.y),
         };
-        const hitWall =
-          next.x < 0 || next.y < 0 || next.x >= SIZE || next.y >= SIZE;
         const hitSelf = prev
           .slice(0, -1)
           .some((s) => s.x === next.x && s.y === next.y);
-        if (hitWall || hitSelf) {
+        if (hitSelf) {
           setStatus("over");
+          sfx.over();
           setScore((s) => {
             setHighScore((h) => {
               const nh = Math.max(h, s);
@@ -96,6 +100,7 @@ export function useSnakeGame() {
         if (ate) {
           setScore((s) => s + 1);
           setFood(randomFood(body));
+          sfx.eat();
         } else {
           body.pop();
         }

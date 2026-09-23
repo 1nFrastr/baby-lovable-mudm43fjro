@@ -33,7 +33,7 @@ export default function SnakeGame() {
       <Controls turn={turn} />
 
       <p className="hidden text-sm text-foreground/50 sm:block">
-        Use arrow keys or WASD · Space to (re)start
+        Use arrow keys or WASD · Space to (re)start · Walls are portals 🌀
       </p>
     </main>
   );
