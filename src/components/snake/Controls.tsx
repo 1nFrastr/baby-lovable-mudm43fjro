@@ -6,7 +6,7 @@ type Turn = ReturnType<typeof useSnakeGame>["turn"];
 
 export default function Controls({ turn }: { turn: Turn }) {
   const btn =
-    "flex h-14 w-14 items-center justify-center rounded-xl border border-foreground/10 bg-foreground/5 text-xl font-semibold transition active:scale-90 active:bg-emerald-500/20";
+    "flex h-14 w-14 items-center justify-center rounded-xl border border-emerald-300/25 bg-emerald-400/10 text-xl font-semibold text-emerald-100 transition active:scale-90 active:bg-emerald-500/40";
   return (
     <div className="grid grid-cols-3 grid-rows-2 gap-2 sm:hidden">
       <span />

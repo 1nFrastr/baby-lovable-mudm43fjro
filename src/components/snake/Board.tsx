@@ -11,10 +11,13 @@ type Props = {
 export default function Board({ snake, food, size, status, onStart }: Props) {
   return (
     <div
-      className="relative grid aspect-square w-full max-w-[420px] touch-none select-none overflow-hidden rounded-2xl border border-foreground/10 bg-foreground/5 shadow-inner"
+      className="relative grid aspect-square w-full max-w-[420px] touch-none select-none overflow-hidden rounded-2xl border border-emerald-300/25 bg-emerald-950/60 shadow-[0_0_40px_rgba(16,185,129,0.15)]"
       style={{
         gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`,
         gridTemplateRows: `repeat(${size}, minmax(0, 1fr))`,
+        backgroundImage:
+          "repeating-conic-gradient(from 0deg, rgba(52,211,153,0.05) 0% 25%, transparent 0% 50%)",
+        backgroundSize: `${100 / size}% ${100 / size}%`,
       }}
     >
       {/* food */}
@@ -41,7 +44,7 @@ export default function Board({ snake, food, size, status, onStart }: Props) {
         />
       ))}
       {status !== "running" && (
-        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-background/70 backdrop-blur-sm">
+        <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 bg-emerald-950/80 backdrop-blur-sm">
           <p className="text-xl font-semibold">
             {status === "idle" ? "🐍 Snake" : "Game Over"}
           </p>
