@@ -7,7 +7,7 @@ export type Point = { x: number; y: number };
 export type Status = "idle" | "running" | "over";
 
 const SIZE = 17;
-const SPEED_MS = 120;
+const SPEED_MS = 200;
 
 type Dir = Point;
 const DIRS: Record<string, Dir> = {

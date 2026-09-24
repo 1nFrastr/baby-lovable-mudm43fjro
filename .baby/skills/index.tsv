@@ -1,3 +1,9 @@
 deps	Add or remove npm packages with pnpm in the sandbox. Use when the user needs a new dependency or after editing package.json.
+frontend-design	Distinctive UI visuals for new or restyled pages. Use before writing or heavily editing UI so the result matches the brief and avoids generic AI template looks.
+particles-3d	WebGL particles driven by webcam hand gestures (R3F + MediaPipe). Use for interactive hero fields, point clouds, or gesture-controlled 3D atmosphere.
+personal-site	Portfolio and personal brand sites — hero, work, about, contact. Use for creators, freelancers, and simple marketing homepages.
 preview	Preview readiness and Next.js dev logs. Use when checkPreview fails, HTTP is 500, or you need compile/runtime error text.
+remotion	Programmatic video with Remotion in React. Use for compositions, frame-driven motion, sequences, or embedding a Player in the Next.js app.
+storefront	Ecommerce UI patterns — catalog, product detail, cart, checkout skeleton. Use when building shops, product landing pages, or merchandising flows.
+web	Search the web and fetch a page as markdown with the Keenable CLI. Use when the task needs current facts, documentation, or the contents of a URL that are not in the workspace.
 workspace-unix	Inspect the Next.js workspace with ls, find, and ripgrep. Use when listing files, searching filenames or file contents, or composing unix pipelines.
